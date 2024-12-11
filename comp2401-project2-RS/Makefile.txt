@@ -1,0 +1,19 @@
+CC = gcc
+CFLAGS = -g -Wall -Wextra -pthread
+SRC = main.c manager.c resource.c system.c event.c
+OBJ = main.o manager.o resource.o system.o event.o
+
+
+all: main
+
+
+main: $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $(OBJ)
+
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+
+clean:
+	rm -f $(OBJ) main
